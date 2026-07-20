@@ -1,0 +1,7 @@
+# Ignore everything except what we explicitly allow
+/*
+!/icon.png
+!/README.md
+!/.gitignore
+!/screenshots
+!/screenshots/*
