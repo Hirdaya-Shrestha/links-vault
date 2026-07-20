@@ -24,6 +24,7 @@
   <img src="screenshots/android_1_1.jpg" alt="Home Screen" width="200">
   <img src="screenshots/android_1_2.jpg" alt="Folders" width="200">
   <img src="screenshots/android_1_3.jpg" alt="Search" width="200">
+  <br>
   <img src="screenshots/android_1_4.jpg" alt="Themes" width="200">
   <img src="screenshots/android_1_5.jpg" alt="Settings" width="200">
 </p>
