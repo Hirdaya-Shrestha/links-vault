@@ -12,9 +12,6 @@
     <a href="https://hirdaya-shrestha.com.np/linksvault/privacy">
       <img src="https://img.shields.io/badge/Privacy-Policy-lightgrey" alt="Privacy Policy">
     </a>
-    <a href="LICENSE">
-      <img src="https://img.shields.io/badge/License-MIT-yellow" alt="License">
-    </a>
     <img src="https://img.shields.io/badge/Platform-Android-brightgreen" alt="Platform Android">
   </p>
 </div>
@@ -43,18 +40,18 @@ Your data never leaves your phone.
 
 ## Features
 
-| Feature | Description |
-|---|---|
-| **Everything offline** | Your links live on your phone — nowhere else. No account, no cloud. |
-| **Nested folders** | Folders, subfolders, colours, pinning, and drag-to-reorder. |
-| **Smart search** | Search by title or URL. Results appear as you type. |
-| **PIN & biometric lock** | 4–6 digit PIN or fingerprint unlock. |
-| **Custom themes** | 10 accent colours and adjustable font sizes. |
-| **8 languages** | English, Nepali, Hindi, Chinese, Japanese, French, Spanish, German. |
-| **Share to app** | Share from any app. Metadata auto-detected. |
-| **QR code sharing** | Share links as QR codes. |
-| **Import bookmarks** | Import browser bookmarks with ease. |
-| **In-app browser** | Browse links without leaving the app. |
+| Feature                  | Description                                                         |
+| ------------------------ | ------------------------------------------------------------------- |
+| **Everything offline**   | Your links live on your phone — nowhere else. No account, no cloud. |
+| **Nested folders**       | Folders, subfolders, colours, pinning, and drag-to-reorder.         |
+| **Smart search**         | Search by title or URL. Results appear as you type.                 |
+| **PIN & biometric lock** | 4–6 digit PIN or fingerprint unlock.                                |
+| **Custom themes**        | 10 accent colours and adjustable font sizes.                        |
+| **8 languages**          | English, Nepali, Hindi, Chinese, Japanese, French, Spanish, German. |
+| **Share to app**         | Share from any app. Metadata auto-detected.                         |
+| **QR code sharing**      | Share links as QR codes.                                            |
+| **Import bookmarks**     | Import browser bookmarks with ease.                                 |
+| **In-app browser**       | Browse links without leaving the app.                               |
 
 ---
 
@@ -69,8 +66,6 @@ Latest version: **v1.2.1** — ~12 MB — Android 7.0+
 ## Privacy
 
 Links Vault collects **zero data**. No telemetry, no analytics, no accounts. Every link, folder, and note stays exclusively on your device. Read the [Privacy Policy](https://hirdaya-shrestha.com.np/linksvault/privacy).
-
----
 
 ## License
 
