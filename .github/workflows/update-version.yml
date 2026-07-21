@@ -1,0 +1,39 @@
+name: Update app version
+
+on:
+  schedule:
+    - cron: '0 0 * * *'
+  workflow_dispatch:
+
+jobs:
+  update-version:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+      - run: pip install google-play-scraper
+      - name: Fetch version and update README
+        run: |
+          python -c '
+          import re, json
+          from google_play_scraper import app
+          result = app("com.ha.nep.linksvault")
+          version = result["appVersionText"]
+          print("Fetched version: " + version)
+          with open("README.md") as f:
+              content = f.read()
+          content = re.sub(
+              r"Latest version: \*\*v?[0-9]+\.[0-9]+\.[0-9]+\*\*",
+              "Latest version: **" + version + "**",
+              content,
+          )
+          with open("README.md", "w") as f:
+              f.write(content)
+          print("README.md updated")
+          '
+      - uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: 'chore: update app version to latest'
+          file_pattern: README.md

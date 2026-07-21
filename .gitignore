@@ -3,5 +3,8 @@
 !/icon.png
 !/README.md
 !/.gitignore
+!/.github
+!/.github/workflows
+!/.github/workflows/*
 !/screenshots
 !/screenshots/*
