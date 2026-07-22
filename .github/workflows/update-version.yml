@@ -43,6 +43,7 @@ jobs:
           candidates = [
               result.get("appVersionText"),
               result.get("version"),
+              result.get("appVersion"),
           ]
 
           version = next(
