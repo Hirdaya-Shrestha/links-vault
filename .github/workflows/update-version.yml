@@ -5,6 +5,9 @@ on:
     - cron: '0 0 * * *'
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   update-version:
     runs-on: ubuntu-latest
@@ -17,15 +20,17 @@ jobs:
       - name: Fetch version and update README
         run: |
           python -c '
-          import re, json
+          import re
           from google_play_scraper import app
           result = app("com.ha.nep.linksvault")
-          version = result["appVersionText"]
+          version = result.get("version") or result.get("appVersionText")
+          if not version:
+              raise KeyError("version")
           print("Fetched version: " + version)
           with open("README.md") as f:
               content = f.read()
           content = re.sub(
-              r"Latest version: \*\*v?[0-9]+\.[0-9]+\.[0-9]+\*\*",
+              r"Latest version: \*\*[^*]+\*\*",
               "Latest version: **" + version + "**",
               content,
           )
