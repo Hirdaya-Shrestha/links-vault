@@ -5,85 +5,30 @@ on:
     - cron: '0 0 * * *'
   workflow_dispatch:
 
-permissions:
-  contents: write
-
 jobs:
   update-version:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.x'
-
-      - name: Install dependencies
-        run: pip install google-play-scraper
-
+      - uses: actions/checkout@v4
+      - run: npm install --no-save google-play-scraper
       - name: Fetch version and update README
         run: |
-          python - <<'PY'
-          import re
-          from google_play_scraper import app
-
-          PACKAGE_NAME = "com.ha.nep.linksvault"
-
-          result = app(PACKAGE_NAME)
-
-          print("Google Play response:")
-          print("Version:", result.get("version"))
-          print("App version text:", result.get("appVersionText"))
-
-          # Prefer version fields that are not the generic Play Store
-          # "Varies with device" value.
-          candidates = [
-              result.get("appVersionText"),
-              result.get("version"),
-              result.get("appVersion"),
-          ]
-
-          version = next(
-              (
-                  v.strip()
-                  for v in candidates
-                  if v
-                  and v.strip().lower() != "varies with device"
-              ),
-              None,
-          )
-
-          if not version:
-              raise RuntimeError(
-                  "Could not find a valid app version. "
-                  f"Available fields: {result}"
-              )
-
-          print("Fetched version: " + version)
-
-          with open("README.md", "r", encoding="utf-8") as f:
-              content = f.read()
-
-          updated_content = re.sub(
-              r"Latest version: \*\*[^*]+\*\*",
-              f"Latest version: **{version}**",
-              content,
-          )
-
-          if updated_content == content:
-              print("No version change found in README.md")
-          else:
-              with open("README.md", "w", encoding="utf-8") as f:
-                  f.write(updated_content)
-
-              print("README.md updated")
-          PY
-
-      - name: Commit changes
-        uses: stefanzweifel/git-auto-commit-action@v5
+          node -e "
+          const gplay = require('google-play-scraper').default;
+          gplay.app({appId: 'com.ha.nep.linksvault'}).then(result => {
+            const fs = require('fs');
+            const version = result.version;
+            console.log('Fetched version: ' + version);
+            let content = fs.readFileSync('README.md', 'utf8');
+            content = content.replace(
+              /Latest version: \*\*v?\d+\.\d+\.\d+\*\*/,
+              'Latest version: **' + version + '**'
+            );
+            fs.writeFileSync('README.md', content);
+            console.log('README.md updated');
+          }).catch(console.error);
+          "
+      - uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: 'chore: update app version to latest'
           file_pattern: README.md
