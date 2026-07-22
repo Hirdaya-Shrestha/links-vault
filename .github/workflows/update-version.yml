@@ -11,34 +11,78 @@ permissions:
 jobs:
   update-version:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
         with:
           python-version: '3.x'
-      - run: pip install google-play-scraper
+
+      - name: Install dependencies
+        run: pip install google-play-scraper
+
       - name: Fetch version and update README
         run: |
-          python -c '
+          python - <<'PY'
           import re
           from google_play_scraper import app
-          result = app("com.ha.nep.linksvault")
-          version = result.get("version") or result.get("appVersionText")
+
+          PACKAGE_NAME = "com.ha.nep.linksvault"
+
+          result = app(PACKAGE_NAME)
+
+          print("Google Play response:")
+          print("Version:", result.get("version"))
+          print("App version text:", result.get("appVersionText"))
+
+          # Prefer version fields that are not the generic Play Store
+          # "Varies with device" value.
+          candidates = [
+              result.get("appVersionText"),
+              result.get("version"),
+          ]
+
+          version = next(
+              (
+                  v.strip()
+                  for v in candidates
+                  if v
+                  and v.strip().lower() != "varies with device"
+              ),
+              None,
+          )
+
           if not version:
-              raise KeyError("version")
+              raise RuntimeError(
+                  "Could not find a valid app version. "
+                  f"Available fields: {result}"
+              )
+
           print("Fetched version: " + version)
-          with open("README.md") as f:
+
+          with open("README.md", "r", encoding="utf-8") as f:
               content = f.read()
-          content = re.sub(
+
+          updated_content = re.sub(
               r"Latest version: \*\*[^*]+\*\*",
-              "Latest version: **" + version + "**",
+              f"Latest version: **{version}**",
               content,
           )
-          with open("README.md", "w") as f:
-              f.write(content)
-          print("README.md updated")
-          '
-      - uses: stefanzweifel/git-auto-commit-action@v5
+
+          if updated_content == content:
+              print("No version change found in README.md")
+          else:
+              with open("README.md", "w", encoding="utf-8") as f:
+                  f.write(updated_content)
+
+              print("README.md updated")
+          PY
+
+      - name: Commit changes
+        uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: 'chore: update app version to latest'
           file_pattern: README.md
