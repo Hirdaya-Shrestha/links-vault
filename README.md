@@ -60,7 +60,7 @@ Your data never leaves your phone.
 
 [<img src="https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png" alt="Get it on Google Play" height="64">](https://play.google.com/store/apps/details?id=com.ha.nep.linksvault)
 
-Latest version: **Varies with device** — ~12 MB — Android 7.0+
+Latest version: **1.2.1** — ~12 MB — Android 7.0+
 
 ---
 

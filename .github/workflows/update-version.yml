@@ -20,12 +20,16 @@ jobs:
             const version = result.version;
             console.log('Fetched version: ' + version);
             let content = fs.readFileSync('README.md', 'utf8');
-            content = content.replace(
-              /Latest version: \*\*v?\d+\.\d+\.\d+\*\*/,
+            let updated = content.replace(
+              /Latest version: \*\*.+?\*\*/,
               'Latest version: **' + version + '**'
             );
-            fs.writeFileSync('README.md', content);
-            console.log('README.md updated');
+            if (updated !== content) {
+              fs.writeFileSync('README.md', updated);
+              console.log('README.md updated');
+            } else {
+              console.log('Version unchanged, skipping');
+            }
           }).catch(console.error);
           "
       - uses: stefanzweifel/git-auto-commit-action@v5
