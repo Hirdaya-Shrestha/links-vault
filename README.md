@@ -1,7 +1,7 @@
 <div align="center">
   <img src="https://lh3.googleusercontent.com" alt="Links Vault" width="96" height="96">
   <h1>Links Vault</h1>
-  <p><strong>Save, organize, and quickly access your important links — all offline.</strong></p>
+  <p><strong>Save, organize, and quickly access your important links - all offline.</strong></p>
   <p>
     <a href="https://play.google.com/store/apps/details?id=com.ha.nep.linksvault">
       <img src="https://img.shields.io/badge/Google_Play-Download-green?logo=googleplay" alt="Google Play">
@@ -30,7 +30,7 @@
 
 ## About
 
-**Links Vault** is a privacy-first Android app for saving and organizing your important links. Everything stays on your device — no account, no servers, no tracking.
+**Links Vault** is a privacy-first Android app for saving and organizing your important links. Everything stays on your device - no account, no servers, no tracking.
 
 Your data never leaves your phone.
 
@@ -40,7 +40,7 @@ Your data never leaves your phone.
 
 | Feature                  | Description                                                         |
 | ------------------------ | ------------------------------------------------------------------- |
-| **Everything offline**   | Your links live on your phone — nowhere else. No account, no cloud. |
+| **Everything offline**   | Your links live on your phone - nowhere else. No account, no cloud. |
 | **Nested folders**       | Folders, subfolders, colours, pinning, and drag-to-reorder.         |
 | **Smart search**         | Search by title or URL. Results appear as you type.                 |
 | **PIN & biometric lock** | 4–6 digit PIN or fingerprint unlock.                                |
@@ -57,7 +57,7 @@ Your data never leaves your phone.
 
 [<img src="https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png" alt="Get it on Google Play" height="64">](https://play.google.com/store/apps/details?id=com.ha.nep.linksvault)
 
-Latest version: **1.2.1** — ~12 MB — Android 7.0+
+Latest version: **1.2.1** - ~12 MB - Android 7.0+
 
 ---
 
