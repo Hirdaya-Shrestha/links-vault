@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="icon.png" alt="Links Vault" width="96" height="96">
+  <img src="https://lh3.googleusercontent.com" alt="Links Vault" width="96" height="96">
   <h1>Links Vault</h1>
   <p><strong>Save, organize, and quickly access your important links — all offline.</strong></p>
   <p>
@@ -21,12 +21,9 @@
 ## Screenshots
 
 <p align="center">
-  <img src="screenshots/android_1_1.jpg" alt="Home Screen" width="200">
-  <img src="screenshots/android_1_2.jpg" alt="Folders" width="200">
-  <img src="screenshots/android_1_3.jpg" alt="Search" width="200">
-  <br>
-  <img src="screenshots/android_1_4.jpg" alt="Themes" width="200">
-  <img src="screenshots/android_1_5.jpg" alt="Settings" width="200">
+  <img src="https://lh3.googleusercontent.com" alt="Screenshot 1" width="200">
+  <img src="https://lh3.googleusercontent.com" alt="Screenshot 2" width="200">
+  <img src="https://lh3.googleusercontent.com" alt="Screenshot 3" width="200">
 </p>
 
 ---
